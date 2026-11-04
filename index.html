@@ -301,21 +301,24 @@
         <p>Every donation can save up to three lives. Fill in your details to join our hero network.</p>
     </div>
 
-    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Registration submitted successfully!');">
+    <!-- Web3Forms Action & Hidden Access Key -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="1fd8ff24-c3ea-47ae-b549-8fc59984b144">
+
         <!-- Personal Information -->
         <div class="section-title">Personal Details</div>
         <div class="form-grid">
             <div class="form-group">
                 <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" placeholder="e.g. Jane Doe" required>
+                <input type="text" id="fullname" name="name" placeholder="e.g. Jane Doe" required>
             </div>
             <div class="form-group">
                 <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" required>
+                <input type="date" id="dob" name="date_of_birth" required>
             </div>
             <div class="form-group">
                 <label for="gender">Gender</label>
-                <select id="gender" required>
+                <select id="gender" name="gender" required>
                     <option value="" disabled selected>Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -325,7 +328,7 @@
             </div>
             <div class="form-group">
                 <label for="weight">Weight (kg)</label>
-                <input type="number" id="weight" min="45" placeholder="e.g. 68" required>
+                <input type="number" id="weight" name="weight" min="45" placeholder="e.g. 68" required>
             </div>
         </div>
 
@@ -334,15 +337,15 @@
         <div class="form-grid">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="jane@example.com" required>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" required>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
             </div>
             <div class="form-group full-width">
                 <label for="address">Residential Address</label>
-                <input type="text" id="address" placeholder="Street Address, City, State/Province, ZIP" required>
+                <input type="text" id="address" name="address" placeholder="Street Address, City, State/Province, ZIP" required>
             </div>
         </div>
 
@@ -389,26 +392,26 @@
 
             <div class="form-group">
                 <label for="last-donation">Last Blood Donation (If applicable)</label>
-                <input type="date" id="last-donation">
+                <input type="date" id="last-donation" name="last_donation_date">
             </div>
             <div class="form-group">
                 <label for="availability">Preferred Contact Method</label>
-                <select id="availability">
+                <select id="availability" name="preferred_contact_method">
                     <option value="phone">Phone Call</option>
                     <option value="sms">SMS Text Message</option>
                     <option value="email">Email</option>
                 </select>
             </div>
             <div class="form-group full-width">
-                <label for="medical-history">Medical Conditions / Existing Medications</label>
-                <textarea id="medical-history" rows="3" placeholder="Please list any chronic illnesses, recent surgeries, or ongoing medications..."></textarea>
+                <label for="medical-history">Medical Conditions / Existing Medications / Message</label>
+                <textarea id="medical-history" name="message" rows="3" placeholder="Please list any chronic illnesses, recent surgeries, ongoing medications, or additional comments..."></textarea>
             </div>
         </div>
 
         <!-- Consent -->
         <div class="form-group full-width" style="margin-bottom: 2rem;">
             <label class="checkbox-group">
-                <input type="checkbox" required>
+                <input type="checkbox" name="consent" value="agreed" required>
                 <span class="checkbox-label">
                     I confirm that the information provided is accurate. I agree to the <a href="#">Terms of Donation</a> and give consent to be contacted for emergency blood donation requests.
                 </span>
